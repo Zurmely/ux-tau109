@@ -5,37 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TAU109 — UX</title>
 <style>
-body{margin:0;background:#fff;color:#000;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center}
-main{max-width:640px;padding:2rem 1.25rem 4rem;width:100%;box-sizing:border-box}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#000;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+main{max-width:960px;margin:0 auto;padding:clamp(2rem,6vw,4rem) 1.25rem 4rem}
 h1{font-size:clamp(2rem,8vw,3rem);margin:0 0 .25rem}
 p{font-size:1.25rem;margin:0 0 2.5rem}
-a{display:block;color:#000;border:2px solid #000;padding:1.25rem 1.5rem;margin-bottom:1rem;font-size:clamp(1.125rem,4.5vw,1.5rem);font-weight:bold;text-decoration:none;overflow-wrap:anywhere}
-a:hover{background:#000;color:#fff}
-h2{font-size:1.5rem;margin:2.5rem 0 .75rem}
-ul{list-style:none;padding:0;margin:0}
-li a{font-size:1rem;padding:.75rem 1rem;margin-bottom:.5rem}
+h2{font-size:1.5rem;margin:3rem 0 1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.big{grid-template-columns:repeat(2,1fr)}
+.card{display:flex;flex-direction:column;gap:.5rem;color:#000;border:2px solid #000;padding:1.25rem;text-decoration:none;overflow-wrap:anywhere;transition:background .15s,color .15s}
+.card:hover,.card:focus-visible{background:#000;color:#fff;outline:none}
+.card strong{font-size:1.05rem}
+.card span{font-size:.875rem}
+.big .card{align-items:flex-start;gap:1.25rem;padding:2rem 1.5rem}
+.big .card strong{font-size:clamp(1.25rem,3vw,1.75rem)}
+.books{grid-template-columns:repeat(auto-fill,minmax(200px,240px))}
+.book{padding:1rem}
+.book img{display:block;width:100%;height:auto;aspect-ratio:400/575;object-fit:contain;background:#fff;margin-bottom:.5rem}
+@media (max-width:600px){.grid,.big,.books{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
 <h1>TAU109 — UX</h1>
 <p>17/10</p>
-<a href="/slides/">Slides</a>
-<a href="/componentes/">Componentes e componentização</a>
+<div class="grid big">
+<a class="card" href="/slides/"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="5" y="8" width="38" height="25"/><path d="M24 33v7M16 42h16"/></svg><strong>Slides</strong></a>
+<a class="card" href="/componentes/"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M24 5l6 6-6 6-6-6zM24 31l6 6-6 6-6-6zM11 18l6 6-6 6-6-6zM37 18l6 6-6 6-6-6z"/></svg><strong>Componentes e componentização</strong></a>
+</div>
 <h2>Componentes</h2>
-<ul>
-<li><a href="https://help.figma.com/hc/pt-br/articles/360038662654-Guia-de-componentes-no-Figma" target="_blank" rel="noopener">Componentes: guia geral — Central de Ajuda do Figma</a></li>
-<li><a href="https://help.figma.com/hc/pt-br/articles/360039150173-Criar-e-inserir-inst%C3%A2ncias-de-componentes" target="_blank" rel="noopener">Instâncias: criar e inserir — Central de Ajuda do Figma</a></li>
-<li><a href="https://help.figma.com/hc/pt-br/articles/5579474826519-Explore-as-propriedades-dos-componentes" target="_blank" rel="noopener">Propriedades de componentes — Central de Ajuda do Figma</a></li>
-<li><a href="https://www.alura.com.br/artigos/componentes-figma" target="_blank" rel="noopener">Componentes e instâncias na prática — Alura</a></li>
-<li><a href="https://www.youtube.com/watch?v=6WF_Mv0dyrI" target="_blank" rel="noopener">Variantes de componentes (vídeo) — Vínculo no YouTube</a></li>
-<li><a href="https://www.youtube.com/watch?v=y29Xwt9dET0" target="_blank" rel="noopener">Variantes (vídeo) — canal oficial do Figma (em inglês)</a></li>
-</ul>
+<div class="grid">
+<a class="card" href="https://help.figma.com/hc/pt-br/articles/360038662654-Guia-de-componentes-no-Figma" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Componentes: guia geral</strong><span>Central de Ajuda do Figma</span></a>
+<a class="card" href="https://help.figma.com/hc/pt-br/articles/360039150173-Criar-e-inserir-inst%C3%A2ncias-de-componentes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Instâncias: criar e inserir</strong><span>Central de Ajuda do Figma</span></a>
+<a class="card" href="https://help.figma.com/hc/pt-br/articles/5579474826519-Explore-as-propriedades-dos-componentes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Propriedades de componentes</strong><span>Central de Ajuda do Figma</span></a>
+<a class="card" href="https://www.alura.com.br/artigos/componentes-figma" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Componentes e instâncias na prática</strong><span>Alura</span></a>
+<a class="card" href="https://www.youtube.com/watch?v=6WF_Mv0dyrI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Variantes de componentes (vídeo)</strong><span>Vínculo no YouTube</span></a>
+<a class="card" href="https://www.youtube.com/watch?v=y29Xwt9dET0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><strong>Variantes (vídeo)</strong><span>canal oficial do Figma (em inglês)</span></a>
+</div>
 <h2>Sugestões de leitura</h2>
-<ul>
-<li><a href="https://www.amazon.com.br/dp/8576088509" target="_blank" rel="noopener">Não Me Faça Pensar — Steve Krug (Alta Books)</a></li>
-<li><a href="https://www.amazon.com.br/dp/8575223666" target="_blank" rel="noopener">Design Centrado no Usuário — Travis Lowdermilk (Novatec)</a></li>
-</ul>
+<div class="grid books">
+<a class="card book" href="https://www.amazon.com.br/dp/8576088509" target="_blank" rel="noopener"><img src="/assets/8576088509.jpg?v=06315a30" alt="Capa do livro Não Me Faça Pensar" width="400" height="575" loading="lazy"><strong>Não Me Faça Pensar</strong><span>Steve Krug · Alta Books</span></a>
+<a class="card book" href="https://www.amazon.com.br/dp/8575223666" target="_blank" rel="noopener"><img src="/assets/8575223666.jpg?v=67b15a74" alt="Capa do livro Design Centrado no Usuário" width="400" height="575" loading="lazy"><strong>Design Centrado no Usuário</strong><span>Travis Lowdermilk · Novatec</span></a>
+</div>
 </main>
 <a href="/timer/" style="position:fixed;right:12px;bottom:12px;background:#fff;display:inline;border:0;padding:0;margin:0;font-size:12px;font-weight:normal;text-decoration:underline;color:#000;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">Timer</a>
 </body>
