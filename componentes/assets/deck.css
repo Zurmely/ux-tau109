@@ -1,5 +1,5 @@
 html,body{margin:0;height:100%;background:#fff;color:#000;overflow:hidden}
-body,#hud,#notes{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+body,#hud{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 #deck{position:fixed;inset:0;overflow:hidden;background:#fff;touch-action:pan-y pinch-zoom;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 #stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:#fff;overflow:hidden}
 .slide{position:absolute;inset:0;display:none;background:#fff;overflow:hidden}
@@ -10,9 +10,9 @@ body,#hud,#notes{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 .slide .ff-mono,.slide .ff-mono *{font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Roboto Mono",monospace !important}
 .slide img{user-select:none;-webkit-user-drag:none}
 #hud{position:fixed;right:14px;bottom:10px;z-index:10;font-size:13px;color:#8a8a8a;pointer-events:none;font-variant-numeric:tabular-nums}
-#notes{position:fixed;left:0;right:0;bottom:0;z-index:20;max-height:38vh;overflow:auto;background:#fff;color:#000;border-top:1px solid #000;padding:16px 20px 28px;box-sizing:border-box;font-size:18px;line-height:1.45}
-#notes[hidden]{display:none}
-#notes-text{max-width:1100px;margin:0 auto;white-space:pre-wrap}
+
+
+
 @media (prefers-reduced-motion: reduce){
   .slide *{animation:none !important}
 }
@@ -27,15 +27,6 @@ body,#hud,#notes{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 [data-like]:focus-visible{outline:4px solid #0d99ff;outline-offset:4px}
 @media (prefers-reduced-motion: reduce){[data-like] .lk img{transition:none}}
 
-/* 'Saiba mais' (reader deck): optional extra text per slide, closed by default */
-.slide .more{position:absolute;right:56px;bottom:40px;z-index:5;max-width:900px;text-align:left}
-.slide .more>summary{list-style:none;cursor:pointer;display:inline-block;float:right;font-size:26px;font-weight:600;color:#1c1c1e;background:#f2f2f7;border-radius:999px;padding:12px 26px;user-select:none}
-.slide .more>summary::-webkit-details-marker{display:none}
-.slide .more>summary::after{content:" +";}
-.slide .more[open]>summary::after{content:" \2212";}
-.slide .more>summary:focus-visible{outline:4px solid #0d99ff;outline-offset:4px}
-.slide .more-body{clear:both;position:absolute;right:0;bottom:72px;width:900px;max-height:640px;overflow:auto;background:#fff;border:2px solid #1c1c1e;border-radius:24px;padding:28px 34px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
-.slide .more-body p{margin:0;font-size:28px;line-height:1.45;color:#1c1c1e}
 .slide a.ext-link{text-decoration:none;cursor:pointer}
 .slide a.ext-link:hover,.slide a.ext-link:focus-visible{text-decoration:underline}
 .slide a.ext-link:focus-visible{outline:3px solid #0d99ff;outline-offset:3px;border-radius:4px}
