@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="250" height="180" viewBox="0 0 250 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mini visual">
+<g id="Group">
+<path id="Vector" d="M86 4H18C10.268 4 4 10.268 4 18V160C4 167.732 10.268 174 18 174H86C93.732 174 100 167.732 100 160V18C100 10.268 93.732 4 86 4Z" fill="white" stroke-width="3" stroke="#111111"/>
+<path id="Vector_2" d="M62 20H20C17.7909 20 16 21.7909 16 24C16 26.2091 17.7909 28 20 28H62C64.2091 28 66 26.2091 66 24C66 21.7909 64.2091 20 62 20Z" fill="#111111"/>
+<path id="Vector_3" d="M82 40H22C18.6863 40 16 42.6863 16 46V78C16 81.3137 18.6863 84 22 84H82C85.3137 84 88 81.3137 88 78V46C88 42.6863 85.3137 40 82 40Z" fill="white" fill-opacity="0.7"/>
+</g>
+<path id="Vector_4" d="M52 72C59.732 72 66 65.732 66 58C66 50.268 59.732 44 52 44C44.268 44 38 50.268 38 58C38 65.732 44.268 72 52 72Z" fill="#2F6BFF" fill-opacity="0.25" stroke-width="3" stroke="#2F6BFF"/>
+<path id="Vector_5" d="M112 90H138M130 97L138 90L130 83" stroke-width="3" stroke="#9A9A9A"/>
+<g id="Group_2">
+<path id="Vector_6" d="M228 4H160C152.268 4 146 10.268 146 18V160C146 167.732 152.268 174 160 174H228C235.732 174 242 167.732 242 160V18C242 10.268 235.732 4 228 4Z" fill="#DDE6FF" stroke-width="3" stroke="#111111"/>
+<path id="Vector_7" d="M204 20H162C159.791 20 158 21.7909 158 24C158 26.2091 159.791 28 162 28H204C206.209 28 208 26.2091 208 24C208 21.7909 206.209 20 204 20Z" fill="#111111"/>
+<path id="Vector_8" d="M224 40H164C160.686 40 158 42.6863 158 46V78C158 81.3137 160.686 84 164 84H224C227.314 84 230 81.3137 230 78V46C230 42.6863 227.314 40 224 40Z" fill="white" fill-opacity="0.7"/>
+</g>
+</g>
+</svg>

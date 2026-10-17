@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="340" height="190" viewBox="0 0 340 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Visual ease out">
+<g id="Vector">
+<path d="M20 175V15ZM20 175H320Z" fill="black"/>
+<path d="M20 15V175H320" stroke-width="2" stroke="#BBBBBB"/>
+</g>
+<path id="Vector_2" d="M20 175C20 175 80 15 320 15" stroke-width="4" stroke="#2F6BFF"/>
+</g>
+</svg>
