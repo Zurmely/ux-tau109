@@ -10,7 +10,7 @@
 
   function fit(){
     var vw=window.innerWidth,vh=window.innerHeight;
-    var nh=notes.hidden?0:notes.offsetHeight;
+    var nh=(!notes||notes.hidden)?0:notes.offsetHeight;
     var ah=Math.max(120,vh-nh);
     var scale=Math.min(vw/W,ah/H);
     var x=(vw-W*scale)/2,y=(ah-H*scale)/2;
@@ -20,8 +20,9 @@
   function setHash(i){var h='#'+(i+1);if(location.hash!==h)history.replaceState(null,'',h);}
   function updateUI(i){
     counter.textContent=(i+1)+' / '+slides.length;
-    var t=slides[i].querySelector('template.notes');
-    notesText.textContent=t?t.content.textContent||t.innerHTML:'';
+    if(notesText){var t=slides[i].querySelector('template.notes');notesText.textContent=t?t.content.textContent||t.innerHTML:'';}
+    // close any open 'Saiba mais' on the slide we leave/enter
+    [].forEach.call(document.querySelectorAll('details.more[open]'),function(d){d.open=false;});
     document.title=slides[i].getAttribute('aria-label').replace(/^\d+ — /,'')+' — TAU109';
     setHash(i);
   }
@@ -56,20 +57,23 @@
     var k=e.key;
     var lb=likeOf(e.target);
     if(lb&&(k===' '||k==='Enter')){e.preventDefault();toggleLike(lb);return;}
+    var it=e.target&&e.target.closest?e.target.closest('a[href],summary,button,.more-body'):null;
+    if(it&&(k===' '||k==='Enter'))return; // let links / Saiba mais work natively
     if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey)||k==='Enter'){e.preventDefault();next();}
     else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey)||k==='Backspace'){e.preventDefault();prevS();}
     else if(k==='Home'){e.preventDefault();go(0);}
     else if(k==='End'){e.preventDefault();go(slides.length-1);}
-    else if(k==='n'||k==='N'){notes.hidden=!notes.hidden;fit();}
+    else if((k==='n'||k==='N')&&notes){notes.hidden=!notes.hidden;fit();}
   });
   // click / tap zones: left third = back, rest = forward
   deck.addEventListener('click',function(e){
     if(Date.now()-lastSwipe<400)return;
     var lb=likeOf(e.target);if(lb){toggleLike(lb);return;}
+    if(e.target.closest&&e.target.closest('a[href],details.more'))return;
     if(e.clientX<window.innerWidth/3)prevS();else next();
   });
   var sx=0,sy=0,st=0,lastSwipe=0;
-  deck.addEventListener('touchstart',function(e){var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
+  deck.addEventListener('touchstart',function(e){if(e.target.closest&&e.target.closest('details.more[open] .more-body'))return;var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
   deck.addEventListener('touchend',function(e){
     var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
     if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2&&Date.now()-st<800){lastSwipe=Date.now();if(dx<0)next();else prevS();}
@@ -77,6 +81,6 @@
   function fromHash(){var m=/^#\/?(\d+)/.exec(location.hash);return m?parseInt(m[1],10)-1:0;}
   window.addEventListener('hashchange',function(){var i=fromHash();if(i!==cur)go(i);});
   window.addEventListener('resize',fit);
-  if(window.ResizeObserver)new ResizeObserver(fit).observe(notes);
+  if(window.ResizeObserver&&notes)new ResizeObserver(fit).observe(notes);
   fit();go(fromHash(),{instant:true});
 })();

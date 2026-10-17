@@ -26,3 +26,16 @@ body,#hud,#notes{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
 [data-like].is-on .lk .off{opacity:0;transform:scale(.6)}
 [data-like]:focus-visible{outline:4px solid #0d99ff;outline-offset:4px}
 @media (prefers-reduced-motion: reduce){[data-like] .lk img{transition:none}}
+
+/* 'Saiba mais' (reader deck): optional extra text per slide, closed by default */
+.slide .more{position:absolute;right:56px;bottom:40px;z-index:5;max-width:900px;text-align:left}
+.slide .more>summary{list-style:none;cursor:pointer;display:inline-block;float:right;font-size:26px;font-weight:600;color:#1c1c1e;background:#f2f2f7;border-radius:999px;padding:12px 26px;user-select:none}
+.slide .more>summary::-webkit-details-marker{display:none}
+.slide .more>summary::after{content:" +";}
+.slide .more[open]>summary::after{content:" \2212";}
+.slide .more>summary:focus-visible{outline:4px solid #0d99ff;outline-offset:4px}
+.slide .more-body{clear:both;position:absolute;right:0;bottom:72px;width:900px;max-height:640px;overflow:auto;background:#fff;border:2px solid #1c1c1e;border-radius:24px;padding:28px 34px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.slide .more-body p{margin:0;font-size:28px;line-height:1.45;color:#1c1c1e}
+.slide a.ext-link{text-decoration:none;cursor:pointer}
+.slide a.ext-link:hover,.slide a.ext-link:focus-visible{text-decoration:underline}
+.slide a.ext-link:focus-visible{outline:3px solid #0d99ff;outline-offset:3px;border-radius:4px}
