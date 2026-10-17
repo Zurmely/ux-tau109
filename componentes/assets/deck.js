@@ -20,6 +20,8 @@
     counter.textContent=(i+1)+' / '+slides.length;
 
     document.title=slides[i].getAttribute('aria-label').replace(/^\d+ — /,'')+' — TAU109';
+    // keep 'Saiba mais' closed when changing slides
+    [].forEach.call(document.querySelectorAll('details.more[open]'),function(d){d.open=false;});
     setHash(i);
   }
   function activate(s){s.classList.add('is-current');s.classList.remove('is-anim');void s.offsetWidth;s.classList.add('is-anim');}
@@ -53,7 +55,7 @@
     var k=e.key;
     var lb=likeOf(e.target);
     if(lb&&(k===' '||k==='Enter')){e.preventDefault();toggleLike(lb);return;}
-    var it=e.target&&e.target.closest?e.target.closest('a[href],button'):null;
+    var it=e.target&&e.target.closest?e.target.closest('a[href],button,summary,.more-body'):null;
     if(it&&(k===' '||k==='Enter'))return; // let links work natively
     if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey)||k==='Enter'){e.preventDefault();next();}
     else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey)||k==='Backspace'){e.preventDefault();prevS();}
@@ -64,12 +66,12 @@
   deck.addEventListener('click',function(e){
     if(Date.now()-lastSwipe<400)return;
     var lb=likeOf(e.target);if(lb){toggleLike(lb);return;}
-    if(e.target.closest&&e.target.closest('a[href]'))return;
+    if(e.target.closest&&e.target.closest('a[href],details.more'))return;
     if(e.clientX<window.innerWidth/3)prevS();else next();
   });
   var sx=0,sy=0,st=0,lastSwipe=0;
-  deck.addEventListener('touchstart',function(e){var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
-  deck.addEventListener('touchend',function(e){
+  deck.addEventListener('touchstart',function(e){if(e.target.closest&&e.target.closest('details.more[open] .more-body'))return;var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
+  deck.addEventListener('touchend',function(e){if(e.target.closest&&e.target.closest('details.more[open] .more-body'))return;
     var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
     if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2&&Date.now()-st<800){lastSwipe=Date.now();if(dx<0)next();else prevS();}
   },{passive:true});
