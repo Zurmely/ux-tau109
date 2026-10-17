@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="87.7174" height="16.9169" viewBox="0 0 87.7174 16.9169" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Element resizing" clip-path="url(#clip0_0_198)">
+<path id="Line" d="M0.807023 8.34052H87.2798" stroke-width="1.61413" stroke-linecap="square" stroke="#0D69D4"/>
+<path id="Edge 2" d="M0.807023 1.96009L0.807023 13.259" stroke-width="1.61413" stroke-linecap="round" stroke="#0D69D4"/>
+<path id="Edge 1" d="M87.2798 13.259V1.96009" stroke-width="1.61413" stroke-linecap="round" stroke="#0D69D4"/>
+</g>
+<defs>
+<clipPath id="clip0_0_198">
+<rect width="87.7174" height="16.9169" fill="white"/>
+</clipPath>
+</defs>
+</svg>
